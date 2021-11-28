@@ -56,7 +56,7 @@ class EmployeeListCreateAPIView(ListCreateAPIView):
             with transaction.atomic():
 
                 # save model
-                serializer.save()
+                serializer.save(created_by=self.request.user)
 
 
 class EmployeeRUDAPIView(RetrieveUpdateDestroyAPIView):
